@@ -143,14 +143,14 @@ if run or st.session_state.get("ran"):
 
     # --- monthly curve with moon markers ------------------------------------
     fig, ax = plt.subplots(figsize=(16, 4))
-    ax.plot(data_t, data_c, "k-")
-    ax.scatter(data_t, data_c, c="red", zorder=3)
+    ax.plot(data_t, data, "k-")
+    ax.scatter(data_t, data, c="red", zorder=3)
 
     # moon markers: white circle at fullest moon, black circle at darkest
-    circle = Ellipse((data_t[np.argmax(data_m)], 130), width=1, height=2,
+    circle = Ellipse((data_t[np.argmax(data)], 15), width=1, height=2,
                      edgecolor='black', facecolor='white', linewidth=2)
     ax.add_patch(circle)
-    circle = Ellipse((data_t[np.argmin(data_m)], 130), width=1, height=2,
+    circle = Ellipse((data_t[np.argmin(data)], 15), width=1, height=2,
                      edgecolor='black', facecolor='black')
     ax.add_patch(circle)
 
