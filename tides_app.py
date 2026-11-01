@@ -148,15 +148,16 @@ if run or st.session_state.get("ran"):
     ax.scatter(data_t, data, c="red", zorder=3)
 
     # moon markers: white circle at fullest moon, black circle at darkest
-    circle = Ellipse((data_t[np.argmax(data_m)], 15), width=1, height=2,
+    circle = Ellipse((data_t[np.argmax(data_m)], 16), width=1, height=2,
                      edgecolor='black', facecolor='white', linewidth=2)
     ax.add_patch(circle)
-    circle = Ellipse((data_t[np.argmin(data_m)], 15), width=1, height=2,
+    circle = Ellipse((data_t[np.argmin(data_m)], 16), width=1, height=2,
                      edgecolor='black', facecolor='black')
     ax.add_patch(circle)
 
     ax.set_ylabel('Marnage (m)')
     ax.set_title('Marées - Saint-Malo - {} {}'.format(MOIS[month - 1], year))
+    ax.set_ylim([0,18])
 
     # --- monthly curve with moon markers ------------------------------------
 
