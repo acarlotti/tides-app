@@ -143,8 +143,8 @@ if run or st.session_state.get("ran"):
 
     # --- monthly curve with moon markers ------------------------------------
     
-    print(data_t[np.argmax(data)])
-    print(data_t[np.argmin(data)])
+    st.caption(data_t[np.argmax(data)])
+    st.caption(data_t[np.argmin(data)])
     
     fig, ax = plt.subplots(figsize=(16, 4))
     ax.plot(data_t, data, "k-")
