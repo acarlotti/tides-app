@@ -161,7 +161,8 @@ if run or st.session_state.get("ran"):
     # --- monthly curve with moon markers ------------------------------------
 
     for k in range(len(data)):
-        ax.text(data_t[k], data[k], '{}'.format(data_t[k]), fontsize=12, color="navy")
+        time_k = datetime.fromisoformat(data_t[k])
+        ax.text(data_t[k], data[k], '{:02d}\n{:02d}'.format(time_k.hour,time_k.minute), fontsize=12, color="navy")
     
     st.pyplot(fig)
 else:
