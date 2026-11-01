@@ -157,7 +157,7 @@ if run or st.session_state.get("ran"):
 
     ax.set_ylabel('Marnage (m)')
     ax.set_title('Marées - Saint-Malo - {} {}'.format(MOIS[month - 1], year))
-    ax.set_ylim([0,18])
+    ax.set_ylim([-2,18])
 
     # --- monthly curve with moon markers ------------------------------------
 
@@ -167,7 +167,7 @@ if run or st.session_state.get("ran"):
         if data[k] > np.mean(data):
             offset = 1
         else:
-            offset = -1
+            offset = -1.2
         ax.text(data_t[k], data[k]+offset, '{:02d}\n{:02d}'.format(dt.hour,dt.minute), fontsize=7, color="navy",horizontalalignment='center',verticalalignment='center')
     
     st.pyplot(fig)
