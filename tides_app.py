@@ -163,7 +163,7 @@ if run or st.session_state.get("ran"):
     for k in range(len(data)):
         #dt = datetime.fromisoformat(data_t[k])
         dt = data_t[k].astype(datetime)
-        ax.text(data_t[k], data[k], '{:02d}\n{:02d}'.format(dt.hour,dt.minute), fontsize=12, color="navy")
+        ax.text(data_t[k], data[k]+1, '{:02d}\n{:02d}'.format(dt.hour,dt.minute), fontsize=12, color="navy",horizontalalignment='center',verticalalignment='center')
     
     st.pyplot(fig)
 else:
