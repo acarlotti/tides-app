@@ -164,10 +164,10 @@ if run or st.session_state.get("ran"):
         #dt = datetime.fromisoformat(data_t[k])
         dt = data_t[k].astype(datetime)
         if data[k] > np.mean(data):
-            offset = 2
+            offset = 1
         else:
-            offset = -4
-        ax.text(data_t[k], data[k]+offset, '{:02d}\n{:02d}'.format(dt.hour,dt.minute), fontsize=9, color="navy",horizontalalignment='center',verticalalignment='center')
+            offset = -1
+        ax.text(data_t[k], data[k]+offset, '{:02d}\n{:02d}'.format(dt.hour,dt.minute), fontsize=7, color="navy",horizontalalignment='center',verticalalignment='center')
     
     st.pyplot(fig)
 else:
