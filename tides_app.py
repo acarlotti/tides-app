@@ -124,20 +124,20 @@ if run or st.session_state.get("ran"):
     data, data_t, data_m = collect_month(extrema, month, year)
 
     # --- tide table --------------------------------------------------------
-    st.subheader("Marées — {} {}".format(MOIS[month - 1], year))
-    rows = []
-    for k in range(day_max):
-        for e in extrema["data"][k]["extrema"]:
-            typ = LABEL.get(e["type"], e["type"])
-            coeff = e.get("coefficient", "")
-            rows.append({
-                "Jour": "{:04d}-{:02d}-{:02d}".format(year, month, k + 1),
-                "Heure": e["time"],
-                "Type": typ,
-                "Hauteur (m)": round(e["height"], 2),
-                "Coefficient": coeff,
-            })
-    st.dataframe(rows, use_container_width=True, height=400)
+    # st.subheader("Marées — {} {}".format(MOIS[month - 1], year))
+    # rows = []
+    # for k in range(day_max):
+    #    for e in extrema["data"][k]["extrema"]:
+    #        typ = LABEL.get(e["type"], e["type"])
+    #        coeff = e.get("coefficient", "")
+    #        rows.append({
+    #            "Jour": "{:04d}-{:02d}-{:02d}".format(year, month, k + 1),
+    #            "Heure": e["time"],
+    #            "Type": typ,
+    #            "Hauteur (m)": round(e["height"], 2),
+    #            "Coefficient": coeff,
+    #        })
+    # st.dataframe(rows, use_container_width=True, height=400)
 
     # --- monthly curve with moon markers ------------------------------------
     fig, ax = plt.subplots(figsize=(16, 4))
