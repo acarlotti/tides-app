@@ -76,7 +76,7 @@ def collect_month(extrema: dict, month: int, year: int):
     data_t = np.array(data_t, dtype="datetime64[s]")
     data_m = np.array(data_m)
     data_c = np.diff(data)/np.mean(data)*100
-    data_c.append(data_c[-1])
+    data_c = np.append(data_c,data_c[-1])
     return data, data_t, data_m, data_c
 
 
