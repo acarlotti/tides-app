@@ -165,11 +165,11 @@ if run or st.session_state.get("ran"):
         #dt = datetime.fromisoformat(data_t[k])
         dt = data_t[k].astype(datetime)
         if data[k] > np.mean(data):
-            offset = 1
+            offset = 1.6
         else:
             offset = -1.2
-        ax.text(data_t[k], data[k]+offset, '{:02d}\n{:02d}'.format(dt.hour,dt.minute), fontsize=7, color="navy",horizontalalignment='center',verticalalignment='center')
-    
+        ax.text(data_t[k], data[k]+offset, '{:02d}\n{:02d}\n{:02d}'.format(dt.day,dt.hour,dt.minute), fontsize=7, color="navy",horizontalalignment='center',verticalalignment='center')
+        
     st.pyplot(fig)
 else:
     st.info("Entrez votre clé API dans la barre latérale, choisissez un mois, "
