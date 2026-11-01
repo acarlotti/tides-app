@@ -164,11 +164,12 @@ if run or st.session_state.get("ran"):
     for k in range(len(data)):
         #dt = datetime.fromisoformat(data_t[k])
         dt = data_t[k].astype(datetime)
+        hour_approximation = dt.hour+int(np.round(dt.minute/60))
         if data[k] > np.mean(data):
             offset = 1.2
         else:
             offset = -1.2
-        ax.text(data_t[k], data[k]+offset, '{:02d}-{:02d}\n{:02d}:{:02d}'.format(dt.day,dt.month,dt.hour,dt.minute), fontsize=4, color="navy",horizontalalignment='center',verticalalignment='center')
+        ax.text(data_t[k], data[k]+offset, '{:02d}\n{:02d}'.format(dt.day,hour_approximation), fontsize=7, color="navy",horizontalalignment='center',verticalalignment='center')
         
     st.pyplot(fig)
 else:
