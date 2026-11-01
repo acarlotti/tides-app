@@ -72,7 +72,7 @@ def collect_month(extrema: dict, month: int, year: int):
             data_m.append(moon.phase)
 
     data_c = np.diff(data)/np.mean(data)*100
-    data_c.append(data_c[-1]
+    data_c.append(data_c[-1])
 
     # convert to numpy arrays for plotting and argmax/argmin
     data = np.array(data)
