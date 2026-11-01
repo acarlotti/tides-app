@@ -71,11 +71,15 @@ def collect_month(extrema: dict, month: int, year: int):
             moon = ephem.Moon(tide_time)
             data_m.append(moon.phase)
 
+    data_c = np.diff(data)/np.mean(data)*100
+    data_c.append(data_c[-1]
+
     # convert to numpy arrays for plotting and argmax/argmin
     data = np.array(data)
     data_t = np.array(data_t, dtype="datetime64[s]")
     data_m = np.array(data_m)
-    return data, data_t, data_m
+    data_c = np.array(data_c)
+    return data, data_t, data_m, data_c
 
 
 # --- Sidebar: API key + month ---------------------------------------------
@@ -121,7 +125,7 @@ if run or st.session_state.get("ran"):
                  "(les prévisions couvrent environ ±1 an).")
         st.stop()
 
-    data, data_t, data_m = collect_month(extrema, month, year)
+    data, data_t, data_m, data_c = collect_month(extrema, month, year)
 
     # --- tide table --------------------------------------------------------
     # st.subheader("Marées — {} {}".format(MOIS[month - 1], year))
@@ -141,18 +145,18 @@ if run or st.session_state.get("ran"):
 
     # --- monthly curve with moon markers ------------------------------------
     fig, ax = plt.subplots(figsize=(16, 4))
-    ax.plot(data_t, data, "k-")
-    ax.scatter(data_t, data, c="red", zorder=3)
+    ax.plot(data_t, data_c, "k-")
+    ax.scatter(data_t, data_c, c="red", zorder=3)
 
     # moon markers: white circle at fullest moon, black circle at darkest
-    circle = Ellipse((data_t[np.argmax(data_m)], 15), width=1, height=2,
+    circle = Ellipse((data_t[np.argmax(data_m)], 130), width=1, height=2,
                      edgecolor='black', facecolor='white', linewidth=2)
     ax.add_patch(circle)
-    circle = Ellipse((data_t[np.argmin(data_m)], 15), width=1, height=2,
+    circle = Ellipse((data_t[np.argmin(data_m)], 130), width=1, height=2,
                      edgecolor='black', facecolor='black')
     ax.add_patch(circle)
 
-    ax.set_ylabel('marnage (m)')
+    ax.set_ylabel('Coefficient')
     ax.set_title('Marées - Saint-Malo - {} {}'.format(MOIS[month - 1], year))
     st.pyplot(fig)
 else:
