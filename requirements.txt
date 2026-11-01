@@ -1,8 +1,5 @@
 streamlit
 requests
 matplotlib
-calendar
-os
-ephem
-datetime
 numpy
+ephem
