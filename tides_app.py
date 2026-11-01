@@ -71,14 +71,12 @@ def collect_month(extrema: dict, month: int, year: int):
             moon = ephem.Moon(tide_time)
             data_m.append(moon.phase)
 
-    data_c = np.diff(data)/np.mean(data)*100
-    data_c.append(data_c[-1])
-
     # convert to numpy arrays for plotting and argmax/argmin
     data = np.array(data)
     data_t = np.array(data_t, dtype="datetime64[s]")
     data_m = np.array(data_m)
-    data_c = np.array(data_c)
+    data_c = np.diff(data)/np.mean(data)*100
+    data_c.append(data_c[-1])
     return data, data_t, data_m, data_c
 
 
