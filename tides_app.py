@@ -146,6 +146,9 @@ if run or st.session_state.get("ran"):
     ax.plot(data_t, data, "k-")
     ax.scatter(data_t, data, c="red", zorder=3)
 
+    print(data_t[np.argmax(data)])
+    print(data_t[np.argmin(data)])
+
     # moon markers: white circle at fullest moon, black circle at darkest
     circle = Ellipse((data_t[np.argmax(data)], 15), width=1, height=2,
                      edgecolor='black', facecolor='white', linewidth=2)
@@ -154,7 +157,7 @@ if run or st.session_state.get("ran"):
                      edgecolor='black', facecolor='black')
     ax.add_patch(circle)
 
-    ax.set_ylabel('Coefficient')
+    ax.set_ylabel('Marnage (m)')
     ax.set_title('Marées - Saint-Malo - {} {}'.format(MOIS[month - 1], year))
     st.pyplot(fig)
 else:
