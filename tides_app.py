@@ -148,10 +148,10 @@ if run or st.session_state.get("ran"):
     ax.scatter(data_t, data, c="red", zorder=3)
 
     # moon markers: white circle at fullest moon, black circle at darkest
-    circle = Ellipse((data_t[np.argmax(data_m)], 16), width=1, height=2,
+    circle = Ellipse((data_t[np.argmax(data_m)], 16), width=1, height=3,
                      edgecolor='black', facecolor='white', linewidth=2)
     ax.add_patch(circle)
-    circle = Ellipse((data_t[np.argmin(data_m)], 16), width=1, height=2,
+    circle = Ellipse((data_t[np.argmin(data_m)], 16), width=1, height=3,
                      edgecolor='black', facecolor='black')
     ax.add_patch(circle)
 
