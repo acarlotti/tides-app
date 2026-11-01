@@ -142,12 +142,13 @@ if run or st.session_state.get("ran"):
     # st.dataframe(rows, use_container_width=True, height=400)
 
     # --- monthly curve with moon markers ------------------------------------
+    
+    print(data_t[np.argmax(data)])
+    print(data_t[np.argmin(data)])
+    
     fig, ax = plt.subplots(figsize=(16, 4))
     ax.plot(data_t, data, "k-")
     ax.scatter(data_t, data, c="red", zorder=3)
-
-    print(data_t[np.argmax(data)])
-    print(data_t[np.argmin(data)])
 
     # moon markers: white circle at fullest moon, black circle at darkest
     circle = Ellipse((data_t[np.argmax(data)], 15), width=1, height=2,
