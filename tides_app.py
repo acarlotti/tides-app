@@ -82,7 +82,7 @@ def collect_month(extrema: dict, month: int, year: int):
 default_key = st.secrets.get("API_MAREE_KEY", "") if hasattr(st, "secrets") else ""
 key = st.sidebar.text_input(
     "api-maree.fr API key",
-    value=default_key or os.environ.get("API_MAREE_KEY", "1293ff9183dcc86dc9335a0564b5ded3"),
+    value=default_key or os.environ.get("API_MAREE_KEY", API_MAREE_KEY),
     type="password",
     help="Free key at https://api-maree.fr",
 )
