@@ -169,7 +169,7 @@ else:
 
 
 # #!/usr/bin/env python3
-# """Print low and high tide times (with heights and coefficients) at
+# """ low and high tide times (with heights and coefficients) at
 # Saint-Malo for a given day.
 
 # Uses the api-maree.fr REST API, which redistributes official SHOM tide
@@ -248,13 +248,13 @@ else:
           
         
 #         label = {"PM": "High tide", "BM": "Low tide"}
-#         # print(f"Tides at Saint-Malo on {day.strftime('%d %B %Y')} ({TIMEZONE}):")
-#         print("Tides at Saint-Malo on {}-{}-{}".format(k+1,month,year))
+#         # (f"Tides at Saint-Malo on {day.strftime('%d %B %Y')} ({TIMEZONE}):")
+#         # print("Tides at Saint-Malo on {}-{}-{}".format(k+1,month,year))
 #         dataframe = extrema["data"][k]["extrema"]
 #         for e in dataframe:
 #             typ = label.get(e["type"], e["type"])
 #             coeff = f", coefficient {e['coefficient']}" if e.get("coefficient") else ""
-#             print(f"  {e['time']}  {typ:8s}  {e['height']:.2f} m{coeff}")
+#             # print(f"  {e['time']}  {typ:8s}  {e['height']:.2f} m{coeff}")
 #             DATA=np.append(DATA,e['height'])
 #             DATA_t=np.append(DATA_t,datetime(year,month,k+1,int(e['time'][:2]),int(e['time'][3:5])))
 #             moon = ephem.Moon(datetime.fromisoformat('{:04d}-{:02d}-{:02d}T{:02d}:{:02d}:00'.format(year,month,k+1,int(e['time'][:2]),int(e['time'][3:5]))))
