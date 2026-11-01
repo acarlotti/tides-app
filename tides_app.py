@@ -169,7 +169,7 @@ if run or st.session_state.get("ran"):
             offset = 1.2
         else:
             offset = -1.2
-        ax.text(data_t[k], data[k]+offset, '{:02d}\n{:02d}'.format(dt.day,hour_approximation), fontsize=7, color="navy",horizontalalignment='center',verticalalignment='center')
+        ax.text(data_t[k], data[k]+offset, '{}\n{}h'.format(dt.day,hour_approximation), fontsize=7, color="navy",horizontalalignment='center',verticalalignment='center')
         
     st.pyplot(fig)
 else:
