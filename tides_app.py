@@ -157,6 +157,12 @@ if run or st.session_state.get("ran"):
 
     ax.set_ylabel('Marnage (m)')
     ax.set_title('Marées - Saint-Malo - {} {}'.format(MOIS[month - 1], year))
+
+    # --- monthly curve with moon markers ------------------------------------
+
+    for k in data:
+        ax.text(data_t[k], data[k], {}.format(data_t[k]), fontsize=12, color="navy")
+    
     st.pyplot(fig)
 else:
     st.info("Entrez votre clé API dans la barre latérale, choisissez un mois, "
