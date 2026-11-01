@@ -156,7 +156,7 @@ if run or st.session_state.get("ran"):
     ax.add_patch(circle)
 
     ax.set_ylabel('Marnage (m)')
-    ax.xaxis('off')
+    ax.set_xaxis('off')
     ax.set_title('Marées - Saint-Malo - {} {}'.format(MOIS[month - 1], year))
     ax.set_ylim([-2,18])
 
